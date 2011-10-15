@@ -16,8 +16,9 @@ object Hello extends cycle.Plan with cycle.ThreadPool with ServerErrorResponse w
   }
 }
 
-object Main extends App {
+object Main extends App with Logging {
   val port = Properties.envOrElse("PORT", "8080").toInt
+  info("started on port:%d".format(port))
   unfiltered.netty.Http(port).plan(Hello).run()
 }
 
