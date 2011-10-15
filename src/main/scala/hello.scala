@@ -1,6 +1,7 @@
 import unfiltered.request._
 import unfiltered.response._
 import unfiltered.netty._
+import util.Properties
 
 object Hello extends cycle.Plan with cycle.ThreadPool with ServerErrorResponse {
   def intent = {
@@ -9,6 +10,7 @@ object Hello extends cycle.Plan with cycle.ThreadPool with ServerErrorResponse {
 }
 
 object Main extends App {
-  unfiltered.netty.Http(8080).plan(Hello).run()
+  val port = Properties.envOrElse("PORT", "8080").toInt
+  unfiltered.netty.Http(port).plan(Hello).run()
 }
 
