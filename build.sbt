@@ -12,8 +12,6 @@ scalaVersion := "2.9.1"
 
 libraryDependencies ++= Seq(
   "org.scala-tools.time" %% "time" % "0.5",
-  "postgresql" % "postgresql" % "9.0-801.jdbc4" withSources(),
-  "net.sf.ehcache" % "ehcache" % "1.5.0" withSources(),
   "ch.qos.logback" % "logback-classic" % "0.9.25" withSources(),
   "org.codehaus.groovy" % "groovy" % "1.8.0" withSources(),
   "org.slf4j" % "jcl-over-slf4j" % "1.6.2" withSources(),
