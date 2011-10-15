@@ -8,4 +8,4 @@ appender("STDOUT", ConsoleAppender) {
   }
 }
 root(INFO, [ "STDOUT" ])
-logger("net.physali", DEBUG, [ "STDOUT" ], false)
+logger("net.physalis", DEBUG, [ "STDOUT" ], false)

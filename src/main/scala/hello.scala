@@ -1,3 +1,5 @@
+package net.physalis.herokuunfiltered
+
 import unfiltered.request._
 import unfiltered.response._
 import unfiltered.netty._
