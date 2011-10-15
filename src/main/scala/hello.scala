@@ -2,10 +2,15 @@ import unfiltered.request._
 import unfiltered.response._
 import unfiltered.netty._
 import util.Properties
+import grizzled.slf4j.Logging
 
-object Hello extends cycle.Plan with cycle.ThreadPool with ServerErrorResponse {
+object Hello extends cycle.Plan with cycle.ThreadPool with ServerErrorResponse with Logging {
   def intent = {
-    case Path(Seg("hello" :: Nil)) => ResponseString("Hello from Unfiltered!")
+    case Path(Seg("hello" :: Nil)) & Params(params) => {
+      debug(params)
+      ResponseString("Hello %s".format(params("name").headOption.getOrElse("Unfiltered")))
+    }
+    case Path(_) => ResponseString("Hello from Unfiltered!")
   }
 }
 
